@@ -1,0 +1,15 @@
+# Use the Node.js Alpine image
+FROM node:18-alpine
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy package.json and install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy the application files
+COPY . .
+
+# Default command to run each server
+CMD ["node", "index.mjs"]
